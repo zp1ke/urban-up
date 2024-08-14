@@ -1,0 +1,10 @@
+{
+	"name": "UrbanUp Ubuntu24",
+	"image": "mcr.microsoft.com/devcontainers/base:noble",
+	"features": {
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/devcontainers/features/aws-cli:1": {}
+	},
+	"customizations": {},
+	"postCreateCommand": "sh ./.devcontainer/postCreateCommand.sh"
+}
