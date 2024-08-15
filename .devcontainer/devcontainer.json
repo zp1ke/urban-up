@@ -5,7 +5,15 @@
 		"ghcr.io/devcontainers/features/terraform:1": {},
 		"ghcr.io/devcontainers/features/aws-cli:1": {}
 	},
-	"customizations": {},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"amazonwebservices.aws-toolkit-vscode",
+				"hashicorp.terraform",
+				"redhat.ansible"
+			]
+		}
+	},
 	"onCreateCommand": "sh ./.devcontainer/onCreateCommand.sh",
 	"postCreateCommand": "sh ./.devcontainer/postCreateCommand.sh"
 }
