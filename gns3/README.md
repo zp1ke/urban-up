@@ -1,6 +1,10 @@
 # GNS3 design
 
-Using Debian appliance.
+Using [Debian 12](https://www.debian.org/distrib/) appliance from [GNS3 marketplace](https://docs.gns3.com/docs/using-gns3/beginners/install-from-marketplace/).
+
+## Subnets ip range
+
+Using [calculator](https://calculator.boson.com/calculator).
 
 ## Debian network
 
