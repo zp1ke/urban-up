@@ -42,6 +42,8 @@ Save iptables rules:
 sudo iptables-save > /etc/iptables/rules.v4
 ```
 
+Restart ;|
+
 ### DHCP
 
 DHCP server:
