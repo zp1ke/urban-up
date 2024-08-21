@@ -9,13 +9,8 @@ terraform {
       version = "5.63.1"
     }
   }
-  backend "s3" {
-    bucket         = var.s3.bucket
-    key            = var.s3.key
-    region         = var.aws.region
-    dynamodb_table = var.dynamodb.table
-    encrypt        = var.s3.encrypt
-  }
+
+  backend "s3" {}
 }
 
 provider "proxmox" {
