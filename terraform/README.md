@@ -5,7 +5,7 @@
 Fill following files with your data.
 
 File `backend.conf` for [s3 config](https://www.terraform.io/docs/language/settings/backends/s3.html):
-```conf
+```properties
 bucket         = "my-bucket"
 key            = "my-s3/terraform.tfstate"
 region         = "us-east-2"
@@ -14,7 +14,7 @@ encrypt        = "true"
 ```
 
 File `terraform.tfvars`:
-```conf
+```properties
 aws = {
   access_key = "my-access-key"
   secret_key = "my-secret-key"
@@ -40,6 +40,6 @@ proxmox = {
 ```
 
 Init terraform:
-```shell
+```console
 terraform init -backend-config=backend.conf
 ```
