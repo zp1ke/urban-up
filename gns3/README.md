@@ -9,36 +9,36 @@ Using [calculator](https://calculator.boson.com/calculator).
 ## Debian network
 
 Edit config in file `/etc/network/interfaces` and restart networking service:
-```shell
+```console
 sudo /etc/init.d/networking restart
 ```
 
 Check:
-```shell
+```console
 ip a
 ```
 
 ### Routers
 
 Enable ipv4 forward in file `/etc/sysctl.conf`:
-```conf
+```properties
 net.ipv4.ip_forward=1
 ```
 
 Install `iptables-persistent`:
-```shell
+```console
 sudo apt install iptables-persistent
 ```
 
 Set iptables rules:
-```shell
+```console
 sudo iptables -t nat -A POSTROUTING -o <OUT_DEV> -j MASQUERADE
 sudo iptables -A FORWARD -i <IN_DEV> -o <OUT_DEV> -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i <IN_DEV> -o <OUT_DEV> -j ACCEPT
 ```
 
 Save iptables rules:
-```shell
+```console
 sudo iptables-save > /etc/iptables/rules.v4
 ```
 
@@ -47,12 +47,12 @@ Restart ;|
 ### DHCP
 
 DHCP server:
-```shell
+```console
 sudo apt install isc-dhcp-server
 ```
 
 Configure DHCP in file `/etc/dhcp/dhcpd.conf`:
-```conf
+```cfg
 subnet <IP_ADDRESS> netmask <NET_MASK> {
   range <IP_ADDRESS_FROM> <IP_ADDRESS_TO>;
   option routers <ROUTER_IP_ADDRESS>;
@@ -63,12 +63,12 @@ subnet <IP_ADDRESS> netmask <NET_MASK> {
 ```
 
 Specify the network interface in file `/etc/default/isc-dhcp-server`:
-```conf
+```properties
 INTERFACESv4="<NET_DEV>"
 ```
 
 Start the DHCP service and enable it to run on boot:
-```shell
+```console
 sudo systemctl start isc-dhcp-server
 sudo systemctl enable isc-dhcp-server
 sudo systemctl status isc-dhcp-server
